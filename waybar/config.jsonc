@@ -1,0 +1,227 @@
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//                         __                                   _____      
+//   _      ______ ___  __/ /_  ____ ______   _________  ____  / __(_)___ _
+//  | | /| / / __ `/ / / / __ \/ __ `/ ___/  / ___/ __ \/ __ \/ /_/ / __ `/
+//  | |/ |/ / /_/ / /_/ / /_/ / /_/ / /     / /__/ /_/ / / / / __/ / /_/ / 
+//  |__/|__/\__,_/\__, /_.___/\__,_/_/      \___/\____/_/ /_/_/ /_/\__, /  
+//               /____/                                           /____/   
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+{
+    /*----- LOOK -----*/
+    "layer": "bottom",
+    "position": "top",
+    "width": 1504,
+    "height": 48,
+    "spacing": 0,
+    "padding": 4,
+    "margin-left": 20,	
+    "margin-right": 20,
+    "margin-bottom": 0,
+    "margin-top": 20,
+
+/*~~~~~ MODULES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    "modules-left": [
+        "custom/power",
+	"clock", "custom/spacer", "clock#date", "custom/spacer",
+	"hyprland/workspaces"
+    ],
+    "modules-center": [
+	"group/music"
+    ],
+    "modules-right": [
+	"pulseaudio", "custom/spacer",
+	"backlight", "custom/spacer",
+	"group/monitor", "custom/spacer",
+        "battery",
+	"group/tray",
+	"custom/notification"
+    ],
+
+/*~~~~~ MODULES CONFIGURATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+     
+    "custom/spacer": {
+	"format": " | ",
+	"tooltip": false
+    },
+
+    /*-----POWER-----*/
+    "custom/power": {
+	"format": "{icon} ",
+	"format-icons": " 󰣇 ",
+	"tooltip": false,
+	"on-click": "~/.config/rofi/power.sh"
+    },
+
+    /*-----CLOCK-----*/
+    "clock": {
+        "format": "{:%p %I:%M}",
+	"tooltip": false
+    },
+    "clock#date": {
+        "format": "{:%a, %e %B}",
+	"tooltip": false
+    },  
+
+    /*-----WORKSPACES-----*/
+    "hyprland/workspaces": {
+	"format": "{icon}",
+	"format-icons": {
+		"1": "I",
+		"2": "II",
+		"3": "III",
+		"4": "IV",
+		"5": "V",
+		"6": "VI",
+		"7": "VII",
+		"8": "VIII",
+		"9": "IX",
+		"10": "X"
+	},
+        "persistent-workspaces": { "*": [1,2,3,4,5] }
+    },
+
+    /*-----MUSIC-----*/
+    "group/music": {
+        "orientation": "inherit",
+	"drawer": {
+		"transition-duration": 500,
+		"transition-left-to-right": true
+	},
+	"modules": [ "group/music_control","mpris"]
+    },
+    "group/music_control": {
+	"orientation": "inherit",
+	"modules": [
+		"custom/music_icon",
+		"custom/cava",
+		"mpris#icon",
+		"custom/prev",
+		"custom/next"
+	]
+    },
+
+     "custom/music_icon": {"format": "   ", "tooltip":false},
+     "mpris": {
+        "format": "  {dynamic}",
+        "interval": 1,
+        "dynamic-len": 40,
+        "dynamic-order": ["artist"]
+    },
+    "mpris#icon": {
+        "format": " {status_icon} ",
+        "interval": 1,
+        "status-icons": {
+            "playing": "▶ ",
+            "paused": "⏸ " ,
+            "stopped": " "
+        }
+    },
+    "custom/prev": {
+	"format": "  ",
+	"on-click": "playerctl previous",
+	"tooltip": false
+    },
+    "custom/next": {
+	"format": "  ", 
+	"on-click": "playerctl next",
+	"tooltip":false
+    },
+    "custom/cava": {
+	"format": "{text}",
+	"min-length":42,
+	"max-length":42,
+    	"exec": "~/.config/waybar/cava_module.py",
+    	"return-type": "json",
+	"tooltip": false
+    },
+
+    /*-----VOLUME-----*/
+    "pulseaudio": {
+    	"format": "     {volume}%",
+	"format-muted": "     {volume}%",
+	"tooltip": false
+    },
+    
+    /*-----BACKLIGHT-----*/
+    "backlight": {
+	"format": "     {percent}%",
+	"tooltip": false
+    },
+
+    /*-----SYSTEM MONITOR-----*/
+    "group/monitor": {
+	"orientation": "inherit",
+	"modules": [
+		"cpu", 
+		"memory",
+        	"temperature"
+	]
+    },
+    "cpu": {
+	"interval": 1,
+        "format": "{usage}% |",
+	"min-length": 6,
+	"tooltip": false
+    },
+    "memory": {
+    	"interval": 10,
+    	"format": "{used:0.1f}G/{total:0.1f}G",
+	"min-length": 11,
+	"tooltip": false
+    },
+    "temperature": {
+	"interval": 10,
+	"format": "| {temperatureC}°C",
+	"min-length": 6,
+	"tooltip": false
+    },
+    
+    /*----- BATTERY -----*/
+    "battery": {
+    	"interval": 10,
+    	"states": {
+        	"warning": 30,
+        	"critical": 20
+    	},
+    	"format": "{icon}     {capacity}%",
+    	"format-icons": ["", "", "", "", ""],
+	    "events": {
+		    "on-discharging-warning": "notify-send -u normal 'Low Battery' 'Time to charge the laptop' -t 3000",
+		    "on-discharging-critical": "notify-send -u critical 'Very Low Battery' 'Now is definitely the time to charge the laptop' -t 3000",
+		    "on-charging-80": "notify-send -u normal 'Battery Full!' 'No need to charge more' -t 3000",
+		    "on-charging-90": "notify-send -u critical 'Battery too much Full!' 'Now definitely no need to charge more' -t 3000"
+	    }
+    },
+
+    /*-----CUSTOM TRAY-----*/
+    "group/tray": {
+	"orientation": "inherit",
+	"drawer": {
+		"transition-duration": 500,
+		"transition-left-to-right": true
+	},
+	"modules": [ "custom/spacer", "tray", "custom/spacer"]
+    },
+    /*-----NOTIFICATION-----*/
+    "custom/notification": {
+	"tooltip": false,
+	"format": "{icon} ",
+	"format-icons": {
+		"notification": "󰂚<span foreground='#e6e6e6'><sup>󱈸</sup></span>",
+		"none": "󰂚",
+		"dnd-notification": "<span foreground='#b5b5b5'>󰂛</span><span foreground='#b5b5b5'><sup>󱈸</sup></span>",
+		"dnd-none": "<span foreground='#b5b5b5'>󰂛</span>",
+		"inhibited-notification": "󰂚<span foreground='#e6e6e6'><sup>󱈸</sup></span>",
+		"inhibited-none": "󰂚",
+		"dnd-inhibited-notification": "<span foreground='#b5b5b5'>󰂛</span><span foreground='#b5b5b5'><sup>󱈸</sup></span>",
+		"dnd-inhibited-none": "<span foreground='#b5b5b5'>󰂛</span>"
+	},
+	"return-type": "json",
+	"exec-if": "which swaync-client",
+	"exec": "swaync-client -swb",
+	"on-click": "swaync-client -t -sw",
+	"on-click-right": "swaync-client -d -sw",
+		"escape": true
+    }
+}

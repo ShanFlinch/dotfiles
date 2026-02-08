@@ -1,0 +1,138 @@
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+    hover-select:               true;
+}
+
+/*****----- Global Properties -----*****/
+* {
+    font:                        "Iosevka Nerd Font Mono 12";
+    background:                  #050505;
+    foreground:                  #e6e6e6;
+    selected:                    #4a4a4a;
+    active:                      #a3a3a3;
+}
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    location:                    north west;
+    anchor:                      north west;
+    fullscreen:                  false;
+    margin:                      34 0 0 50;
+    width:                       800px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+    padding:                     4px;
+    border:                      2px solid;
+    border-radius:               0px;
+    border-color:                @background;
+    cursor:                      "default";
+    background-color:            @foreground;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    background-color:            transparent;
+    spacing:                     0px;
+    orientation:                 horizontal;
+    children:                    [ "imagebox", "listbox" ];
+}
+
+/*****----- Imagebox -----*****/
+imagebox {
+    spacing:                     0px;
+    padding:                     10px;
+    background-color:            transparent;
+    background-image:            url("~/.config/rice/tomie/peak.jpg", width);
+    children:                    [ "inputbar", "dummy", "message" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    padding:                     4px;
+    border-radius:               0px;
+    background-color:            @background;
+    border:                      2px;
+    border-color:                @foreground;
+    text-color:                  @foreground;
+    children:                    [ "dummy", "prompt", "dummy"];
+}
+
+dummy {
+    background-color:            transparent;
+}
+
+prompt {
+    background-color:            inherit;
+    text-color:                  inherit;
+}
+
+/*****----- Message -----*****/
+message {
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     6px;
+    border-radius:               0px;
+    border:                      2px;
+    border-color:                @foreground;
+    background-color:            @background;
+    text-color:                  @foreground;
+}
+textbox {
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+/*****----- Listview -----*****/
+listbox {
+    background-color:            @background;
+    children:                    ["listview"];
+}
+listview {
+    enabled:                     true;
+    columns:                     3;
+    lines:                       2;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     8px;
+    margin:                      28px;
+    padding:                     8px;
+    border:                      4px;
+    border-color:                @foreground;
+    background-color:            transparent;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    padding:                     4px;
+    border-radius:               0px;
+    border:                      2px;
+    border-color:                @foreground;
+    background-color:            @background;
+    text-color:                  @foreground;
+    cursor:                      pointer;
+}
+element-text {
+    font:                        "feather bold 36";
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.35;
+}
+element selected.normal {
+    background-color:            @selected;
+    text-color:                  @foreground;
+}
