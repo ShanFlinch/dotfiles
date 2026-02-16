@@ -2,7 +2,7 @@
 font-family = ""
 font-family = "Iosevka"
 font-family = "JetBrains Mono Nerd Font"
-font-size = 10
+font-size = 13
 custom-shader = ~/.config/ghostty/cursor_sweep.glsl
 custom-shader = ~/.config/ghostty/rectangle_boom_cursor.glsl
 custom-shader-animation = always
