@@ -1,0 +1,240 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *                                                   __        __   
+ *     ______      ______ ___  ______  _____   _____/ /___  __/ /__ 
+ *    / ___/ | /| / / __ `/ / / / __ \/ ___/  / ___/ __/ / / / / _ \
+ *   (__  )| |/ |/ / /_/ / /_/ / / / / /__   (__  ) /_/ /_/ / /  __/
+ *  /____/ |__/|__/\__,_/\__, /_/ /_/\___/  /____/\__/\__, /_/\___/ 
+ *                      /____/                       /____/         
+ *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+@define-color mpris-album-art-overlay rgba(0, 0, 0, 0.55);
+@define-color mpris-button-hover rgba(0, 0, 0, 0.5);
+
+/*----- GLOBAL STYLES ------------------------------------------------------------------*/
+* {
+    outline: none;
+    font-family: "Iosevka";
+    font-size: 20px;
+    text-shadow: none;
+    color: #e7e6e6;
+}
+
+/*----- CONTROL CENTER - Main notification panel ---------------------------------------*/
+.control-center {
+    background-color: #050505; 
+    border: 4px solid #e6e6e6;
+    box-shadow: 0 0 0 2px #050505;
+    padding: 5px; 
+    border-radius: 0px;
+background-image:
+        linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 1) 39%, 
+		rgba(5, 5, 5, 0) 50%, 
+		rgba(5, 5, 5, 0) 80%, 
+		rgba(0, 0, 0, 1) 100%
+	),
+        url('/home/shanflinch/.config/rice/tomie/swaync.jpg');
+
+    background-size: cover, contain;
+    background-position: center, bottom;
+    background-repeat: no-repeat, no-repeat;
+}
+.control-center list {
+    background: transparent;
+    padding: 2px;
+}
+/*----- NOTIFICATION STYLES ------------------------------------------------------------*/
+.notification {
+     background-color: #050505;
+    border: 4px solid #e6e6e6;
+}
+.notification > *:last-child > * {
+    margin: 5px;
+}
+.notification-content {
+    padding: 4px;
+}
+
+/* Text Elements */
+.summary {
+    font-family: "Bebas Neue";
+    font-weight: 400;
+    font-size: 24px;
+}
+.time {
+    font-size: 14px;
+}
+.body {
+    font-size: 14px;
+}
+
+.notification-action > button {
+    border-radius: 0px;
+}
+
+.notification-action > label {
+    font-size: 16px;
+    font-weight: normal;
+}
+.notification.critical {
+    background-color: #050505;
+    border-radius: 0px;
+}
+.notification.low,
+.notification.normal {
+    background-color: #050505;
+    border-radius: 0px;
+}
+.close-button {
+    background-color: transparent;
+}
+
+.floating-notifications {
+    margin: 24px 48px 0px 0px; /* Top, Right, Bottom, Left */
+}
+.floating-notifications .notification {
+    margin-bottom: 15px; 
+}
+/*----- NOTIFICATION GROUPS ------------------------------------------------------------*/
+.notification-group-header,
+.notification-group-icon {
+    font-size: 0.8rem;
+}
+
+.notification-group-collapse-button,
+.notification-group-close-all-button {
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.35);
+    background-color: #4a4a4a;
+    border-radius: 0px;
+}
+
+.notification-group-collapse-button:hover {
+    background-color:  @mpris-button-hover;
+    border-radius: 0px;
+}
+
+.notification-group-close-all-button:hover {
+    background-color: #4a4a4a;
+    border-radius: 4px;
+}
+
+/*----- MPRIS WIDGET - Media player controls -------------------------------------------*/
+.widget-mpris {
+    margin: 5px 0px;
+    padding: 0px;
+}
+.widget-mpris .widget-mpris-player {
+    background-color: @mpris-button-hover;
+    border-radius: 0px;
+    padding: 0px;
+}
+.widget-mpris .widget-mpris-player .widget-mpris-album-art {
+    border-radius: 0px;
+
+}
+.widget-mpris .widget-mpris-player .widget-mpris-title {
+    font-family: "Iosevka", monospace;
+    font-size: 16px;
+    color: #e6e6e6;
+    margin: 0px;
+
+}
+
+.widget-mpris .widget-mpris-player .widget-mpris-subtitle {
+    font-size: 1rem;
+    color: #4a4a4a;
+}
+
+.widget-mpris .widget-mpris-player > box > button:hover {
+    background-color: @mpris-button-hover;
+}
+
+.widget-mpris > box > button:hover {
+    background: alpha(#050505, 0.6);
+}
+
+.widget-mpris button:first-child,
+.widget-mpris button:last-child {
+    opacity: 0;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.widget-mpris .widget-mpris-player button:first-child,
+.widget-mpris .widget-mpris-player button:last-child {
+    opacity: 0;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/*----- DND WIDGET - Do Not Disturb toggle ---------------------------------------------*/
+/* DND text */
+.widget-dnd > label {
+    color: #e6e6e6;
+    font-family: "Bebas Neue";
+    font-size: 28px;
+    text-shadow: 1px 1px 16px #050505;
+}
+.widget-dnd {
+    font-family: "Bebas Neue";
+    border-radius: 0px;
+}
+
+.widget-dnd > switch {
+    background: #050505;
+    border: 2px solid #e6e6e6;
+    border-radius: 0px;
+    box-shadow: none;
+    padding: 4px;
+}
+
+.widget-dnd > switch:checked {
+    background: #050505;
+}
+
+.widget-dnd > switch slider {
+    background: #e6e6e6 ;
+    border-radius: 0px;
+    min-width: 18px;
+    min-height: 10px;
+}
+
+/*----- TITLE WIDGET - Header with clear all button ------------------------------------*/
+.widget-title {
+    font-family: "Bebas Neue";
+    font-weight: 400;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+.widget-title > label {
+    font-family: "Bebas Neue";
+    font-weight: 400;   
+    font-size: 32px;
+}
+.widget-notification {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+/*----- SCROLLBAR STYLES ---------------------------------------------------------------*/
+scrollbar {
+    background: transparent;
+}
+scrollbar trough {
+    background: transparent;
+}
+scrollbar slider {
+    background: transparent; 
+    border: none;
+}
+.control-center scrolledwindow scrollbar {
+    min-width: 0px;
+    min-height: 0px;
+    opacity: 0;
+}

@@ -1,0 +1,69 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *                         __                       __        __   
+ *   _      ______ ___  __/ /_  ____ ______   _____/ /___  __/ /__ 
+ *  | | /| / / __ `/ / / / __ \/ __ `/ ___/  / ___/ __/ / / / / _ \
+ *  | |/ |/ / /_/ / /_/ / /_/ / /_/ / /     (__  ) /_/ /_/ / /  __/
+ *  |__/|__/\__,_/\__, /_.___/\__,_/_/     /____/\__/\__, /_/\___/ 
+ *               /____/                             /____/         
+ *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+*{
+	/*----- Global -----*/
+	font-family: "Iosevka Nerd Font Mono";
+	font-size: 14px;
+	font-weight: 400;
+}
+#waybar > box{
+	margin: 4px 4px 4px 4px;
+        background:#050505;
+	background-image:  radial-gradient(rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%), url("file:///home/shanflinch/.config/rice/tomie/waybar.png");
+    	background-size: contain;
+    	background-position: center;
+	border: 4px solid #e6e6e6;
+	box-shadow: 0 0 0 4px #050505;
+	color: #e6e6e6;
+}
+button:hover {
+	background: #e6e6e6;
+	color: #050505;
+}
+
+/*~~~~~ Module Specific ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#custom-spacer {
+	font-family: "Bebas Neue";
+	font-size: 24px;
+}
+#custom-power, #custom-notification {
+	font-family: "JetBrains Mono Nerd Font";
+	font-size: 24px;
+}
+#clock, #pulseaudio, #backlight, #battery {
+	font-family: "Bebas Neue";
+	font-size: 20px;
+}
+
+/*~~~~~ Hyprland workspaces ~~~~~*/
+#workspaces button {
+    padding: 0 4px;
+    background-color: transparent;
+    color: #e6e6e6;
+}
+#workspaces button:hover {
+    background: #0f0f0f;
+}
+#workspaces button.focused, #workspaces button.active {
+    background-color: #e6e6e6;
+    color: #050505;
+}
+
+/*~~~~~ Music ~~~~~*/
+#custom-music_icon, #custom-prev, #custom-next, #mpris-icon {
+    font-family: "JetBrains Mono Nerd Font";
+    font-size: 16px;
+}
+#custom-cava {
+    background-image: url("file:///home/shanflinch/.config/rice/tomie/cava.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}

@@ -1,16 +1,18 @@
 #!/bin/bash
 
+
 BRIGHT_WALL="$HOME/.config/rice/tomie/wallpaper1.jpg"
 DIM_WALL="$HOME/.config/rice/tomie/wallpaper2.jpg"
+
 
 update_wallpaper() {
 
     WINDOW_COUNT=$(hyprctl activeworkspace -j | jq '.windows')
 
     if [ "$WINDOW_COUNT" -eq 0 ]; then
-        awww img "$DIM_WALL" --transition-type simple --transition-fps 60 --transition-step 8
+        swww img "$DIM_WALL" --transition-type simple --transition-fps 60 --transition-step 8
     else
-        awww img "$BRIGHT_WALL" --transition-type simple --transition-fps 60 --transition-step 16
+        swww img "$BRIGHT_WALL" --transition-type simple --transition-fps 60 --transition-step 16
     fi
 }
 

@@ -1,0 +1,81 @@
+{
+    "$schema": "/etc/xdg/swaync/configSchema.json",
+    "ignore-gtk-theme": true,
+    "positionX": "right",
+    "positionY": "top",
+    "cssPriority": "user",
+
+    "layer": "overlay",
+    "control-center-layer": "top",
+    "layer-shell": true,
+
+    "control-center-width": 330,
+    "control-center-height": 700,
+    "control-center-margin-top": 34,
+    "control-center-margin-bottom": 48,
+    "control-center-margin-right": 50,
+    "control-center-margin-left": 0,
+    
+    "notification-2fa-action": true,
+    "notification-window-width": 400,
+    "notification-icon-size": 40,
+    "notification-body-image-height": 200,
+    "notification-body-image-width": 650,
+
+    "timeout": 10,
+    "timeout-low": 5,
+    "timeout-critical": 0,
+
+    "fit-to-screen": true,
+    "keyboard-shortcuts": true,
+    "image-visibility": "when-available",
+    "transition-time": 200,
+    "hide-on-clear": true,
+    "hide-on-action": true,
+    "text-empty": "",
+    "script-fail-notify": true,
+    "notification-visibility": {
+        "example-name": {
+            "state": "muted",
+            "urgency": "Low",
+            "app-name": "Spotify"
+        }
+    },
+
+    "widgets": [    
+	    "mpris",
+        "title",
+        "notifications",
+        "dnd"
+    ],
+
+    "widget-config": {    
+	    "mpris": {
+            "image-size": 32,
+            "image-radius": 0
+        },
+        "dnd": {
+            "text": "Do  Not  Disturb"
+        },
+        "title": {
+            "text": "Notification  Center",
+            "clear-all-button": true,
+            "button-text": "󰆴"
+	    }
+    },
+
+    "scripts": {
+        "normal-sound": {
+            "exec": "pw-play /usr/share/sounds/freedesktop/stereo/message.oga",
+            "urgency": "Normal"
+        },
+        "low-urgency-sound": {
+            "exec": "pw-play /usr/share/sounds/freedesktop/stereo/message.oga",
+            "urgency": "Low"
+        },
+        "critical-alert": {
+            "exec": "pw-play /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga",
+            "urgency": "Critical"
+        }
+    }
+}
