@@ -45,11 +45,13 @@ button:hover {
 /*~~~~~ Hyprland workspaces ~~~~~*/
 #workspaces button {
     padding: 0 4px;
+    border-radius: 0px;
+    border: 0px;
     background-color: transparent;
     color: #e6e6e6;
 }
 #workspaces button:hover {
-    background: #0f0f0f;
+    background-color: #111111;
 }
 #workspaces button.focused, #workspaces button.active {
     background-color: #e6e6e6;
